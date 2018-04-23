@@ -1,0 +1,34 @@
+﻿@model dot_net_Restful.Viewmodel.NewCustomerViewModel
+
+@{
+    ViewBag.Title = "Edit";
+  
+}
+
+<h2>Edit</h2>
+
+
+
+
+
+@using (Html.BeginForm("Edit", "Customer"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control " })
+    </div>
+
+
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribe)check me out
+        </label>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipType, "Id", "Name"), "Select membership", new { @class = "form-control" })
+    </div>
+    <div>
+        <button type="submit" class="btn">Save</button>
+    </div>
+}

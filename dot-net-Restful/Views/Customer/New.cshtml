@@ -1,0 +1,35 @@
+﻿@model dot_net_Restful.Viewmodel.NewCustomerViewModel
+@{
+    ViewBag.Title = "New";
+    
+}
+
+<h2>New Customer</h2>
+
+@using (Html.BeginForm("Save", "Customer"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control " })
+        @Html.ValidationMessageFor(m=>m.Customer.Name)
+    </div>
+   
+   
+   <div class="checkbox">
+       <label>
+           @Html.CheckBoxFor(m=>m.Customer.IsSubscribe)check me out
+       </label>
+   </div>
+   <div class="form-group">
+       @Html.LabelFor(m=>m.Customer.MembershipTypeId)
+       @Html.DropDownListFor(m => m.Customer.MembershipTypeId,new SelectList(Model.MembershipType,"Id","Name"),"Select membership",new { @class= "form-control" })
+   </div>
+   <div>
+       @Html.HiddenFor(m=>m.Customer.id)
+       <button type="submit" class="btn">Save</button>
+   </div>
+}
+@section scripts
+    {
+    ¨@Scripts.Render("~/bundles/jqueryval")
+    }

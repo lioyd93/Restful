@@ -1,0 +1,17 @@
+﻿@model  IEnumerable<dot_net_Restful.Models.Customer>
+@{
+    ViewBag.Title = "View";
+   
+}
+
+@foreach (var customers in Model)
+{
+
+
+
+<tr>
+    <td>@Html.ActionLink(customers.Name, "Edit", "Movie", new { id = customers.id}, null)</td>
+
+   
+</tr>
+}

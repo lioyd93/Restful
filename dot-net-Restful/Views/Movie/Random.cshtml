@@ -1,0 +1,20 @@
+﻿@model dot_net_Restful.Viewmodel.RandomMovieViewModel
+@{
+              
+
+                ViewBag.Title = "Random";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model.Customers == null)
+{
+    <p>there no Customer</p>
+}
+else
+{
+    @*foreach (var movie in Model.Movie)
+    {
+        <p>@movie.Name </p>
+    }*@
+}
